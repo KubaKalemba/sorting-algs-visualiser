@@ -25,7 +25,7 @@ const Chart = (props) => {
                 <button onClick={props.bubble}>
                     bubble
                 </button>
-                <button onClick={props.merge}>
+                <button onClick={() => {props.merge(props.values, 0, props.values.length-1)}}>
                     merge
                 </button>
                 <button onClick={props.quick}>
