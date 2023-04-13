@@ -4,7 +4,10 @@ import Chart from "./components/Chart/Chart.jsx";
 
 function App() {
 
-    const [values, setValues] = useState([1, 7, 19, 5, 13, 8, 17, 3, 12, 11, 16, 10, 6, 20, 2, 15, 9, 18, 4, 14])
+    const [values, setValues] = useState([15, 38, 7, 46, 5, 21, 41, 23, 25, 37, 42, 49, 35, 16, 31, 20, 26, 10,
+        2, 44, 19, 12, 18, 36, 13, 0, 28, 29, 40, 33, 48, 32, 30, 45, 39, 9, 1, 8, 47, 6, 43, 3, 22, 27, 24, 4, 34, 11,
+        50, 14, 17]
+)
 
     const selectionSort = async () => {
         let min;
@@ -20,7 +23,7 @@ function App() {
             vals[min] = vals[i]
             vals[i] = tmp
             setValues( [...vals])
-            await wait(200)
+            await wait(100)
         }
         setValues(vals)
     }
