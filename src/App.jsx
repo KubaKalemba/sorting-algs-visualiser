@@ -9,6 +9,9 @@ function App() {
         50, 14, 17]
 )
 
+    const [speed, setSpeed] = useState(100)
+    const [maxSpeed, setMaxSpeed] = useState(300)
+
     const selectionSort = async () => {
         let min;
         let vals = [...values]
@@ -23,7 +26,7 @@ function App() {
             vals[min] = vals[i]
             vals[i] = tmp
             setValues( [...vals])
-            await wait(100)
+            await wait(maxSpeed - speed)
         }
         setValues([...vals])
     }
@@ -36,7 +39,7 @@ function App() {
                     let tmp = vals[i]
                     vals[i] = vals[j]
                     vals[j] = tmp
-                    await wait(100)
+                    await wait(maxSpeed - speed)
                 }
                 setValues([...vals])
             }
@@ -56,12 +59,10 @@ function App() {
         for (let j = 0; j < n2; j++)
             R[j] = arr[m + 1 + j]
 
-        // Merge the temp arrays back into arr[l..r]
 
         let i = 0
         let j = 0
 
-        // Initial index of merged subarray
         let k = l;
 
         while (i < n1 && j < n2) {
@@ -98,16 +99,45 @@ function App() {
         await mergeSort(vals, m + 1, r)
         merge(vals, l, m, r)
         setValues([...vals])
-        await wait(100)
+        await wait(maxSpeed - speed)
     }
 
-    const partition = async () => {
+    const partition = async (vals, low, high) => {
+        let pivot = vals[high];
+        let i = low - 1;
 
+        for (let j = low; j <= high - 1; j++) {
+            if (vals[j] < pivot) {
+                i++;
+                [vals[i], vals[j]] = [vals[j], vals[i]];
+            }
+        }
+
+        [vals[i + 1], vals[high]] = [vals[high], vals[i + 1]];
+        setValues([...vals])
+        await wait(maxSpeed - speed)
+        return i + 1;
     }
 
-    const quickSort = async () => {
-
+    const quickSort = async (vals, low, high) => {
+        if (low < high) {
+            let pi = await partition(vals, low, high);
+            await quickSort(vals, low, pi - 1);
+            await quickSort(vals, pi + 1, high);
+        }
     }
+
+    const shuffle = () => {
+        let newValues = [...values]
+        for (let i = newValues.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const tmp = newValues[i];
+            newValues[i] = newValues[j];
+            newValues[j] = tmp;
+        }
+        setValues(newValues)
+    }
+
 
     const wait = (time) => {
         return new Promise((resolve) => {
@@ -123,6 +153,10 @@ function App() {
                 bubble={bubbleSort}
                 merge={mergeSort}
                 quick={quickSort}
+                shuffle={shuffle}
+                setSpeed={setSpeed}
+                speed={speed}
+                maxSpeed={""+ maxSpeed}
             />
         </div>
      )

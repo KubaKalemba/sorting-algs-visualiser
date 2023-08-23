@@ -1,5 +1,8 @@
 .bar {
-    background-color: #fff;
+    border: solid 1px whitesmoke;
+    margin-right: 1px;
+    border-radius: 1em;
+    background-color: #90e0ef;
 }
 
 .curr {
