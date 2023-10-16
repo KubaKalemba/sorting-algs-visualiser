@@ -126,6 +126,7 @@ function App() {
         return i + 1;
     }
 
+
     const quickSort = async (vals, low, high) => {
         setIsSorting(true)
         if (low < high) {
@@ -135,6 +136,7 @@ function App() {
         }
         setIsSorting(false)
     }
+
 
     const shuffle = () => {
         if(isSorting)return
@@ -148,14 +150,10 @@ function App() {
         setValues(newValues)
     }
 
-    const stop = () => {
-        setIsSorting(!isSorting)
-    }
-
 
     const wait = (time) => {
         return new Promise((resolve) => {
-            setTimeout(() => resolve(true), time)
+            setTimeout(() => resolve(true), maxSpeed - speed)
         });
     }
 

@@ -40,17 +40,13 @@ input[type="range"] {
   appearance: none;
   background: transparent;
   cursor: pointer;
-  width: 15rem;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   appearance: none;
   width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: whitesmoke;
+  background: #5cd5eb;
   height: .75rem;
   border: 1px solid transparent;
   border-radius: .5rem;
@@ -63,22 +59,12 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: #9743f1;
   height: 2rem;
   width: 2rem;
-}
-
-progress {
-  -webkit-appearance: none;
-}
-
-::-webkit-progress-value {
-  background-color: orange;
+  margin-top: -.625rem; /* center -> margin-top = (track height in pixels / 2) - (thumb height in pixels /2) */
 }
 
 
 input[type="range"]::-moz-range-track {
   width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: whitesmoke;
   height: .75rem;
   border: 1px solid transparent;
