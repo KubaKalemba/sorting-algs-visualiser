@@ -54,6 +54,9 @@ const Chart = (props) => {
                 <button onClick={props.shuffle}>
                     SHUFFLE
                 </button>
+                <button>
+                    LightMode
+                </button>
             </div>
 
         </div>

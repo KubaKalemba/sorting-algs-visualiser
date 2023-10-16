@@ -11,6 +11,7 @@ function App() {
 
     const [speed, setSpeed] = useState(100)
     const [maxSpeed, setMaxSpeed] = useState(300)
+    const [isSorting, setIsSorting] = useState(false)
 
     const selectionSort = async () => {
         let min;
@@ -29,9 +30,11 @@ function App() {
             await wait(maxSpeed - speed)
         }
         setValues([...vals])
+        setIsSorting(false)
     }
 
     const bubbleSort = async () => {
+        setIsSorting(true)
         let vals = [...values]
         for (let i = 0; i < vals.length; i++) {
             for (let j = i+1; j < vals.length; j++) {
@@ -45,6 +48,7 @@ function App() {
             }
         }
         setValues([...vals])
+        setIsSorting(false)
     }
 
     const merge = (arr, l, m, r) => {
@@ -90,6 +94,7 @@ function App() {
     }
 
     const mergeSort = async (vals, l, r) => {
+        setIsSorting(true)
         if(l>=r) {
             return
         }
@@ -100,6 +105,7 @@ function App() {
         merge(vals, l, m, r)
         setValues([...vals])
         await wait(maxSpeed - speed)
+        setIsSorting(false)
     }
 
     const partition = async (vals, low, high) => {
@@ -120,14 +126,17 @@ function App() {
     }
 
     const quickSort = async (vals, low, high) => {
+        setIsSorting(true)
         if (low < high) {
             let pi = await partition(vals, low, high);
             await quickSort(vals, low, pi - 1);
             await quickSort(vals, pi + 1, high);
         }
+        setIsSorting(false)
     }
 
     const shuffle = () => {
+        if(isSorting)return
         let newValues = [...values]
         for (let i = newValues.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -136,6 +145,10 @@ function App() {
             newValues[j] = tmp;
         }
         setValues(newValues)
+    }
+
+    const stop = () => {
+        setIsSorting(!isSorting)
     }
 
 
