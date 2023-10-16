@@ -18,17 +18,131 @@ body {
 }
 
 button {
-  width: 128px;
-  height: 32px;
+  width: 10rem;
+  height: 2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 1rem;
   background-color: #000000;
   transition: ease-out transform .25s;
-  font-size: 1.25rem;
-  text-align: center;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
   border: solid 1px whitesmoke;
-  transform: scale(1.2);
+  transform: scale(1.5);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: whitesmoke;
+  height: .75rem;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  background-color: #9743f1;
+  height: 2rem;
+  width: 2rem;
+}
+
+progress {
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-value {
+  background-color: orange;
+}
+
+
+input[type="range"]::-moz-range-track {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: whitesmoke;
+  height: .75rem;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+}
+
+input[type="range"]::-moz-range-progress {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #5cd5eb;
+  height: .75rem;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  background-color: #9743f1;
+  height: 2rem;
+  width: 2rem;
+}
+
+
+.header, .footer {
+  width: 100%;
+  height: 12.5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header {
+  font-size: 2rem;
+  padding-left: 10%;
+}
+
+.footer {
+  justify-content: center;
+}
+
+.icon-github {
+  font-size: 2.5rem;
+  transition: ease-in-out transform .25s;
+}
+
+.icon-github:hover {
+  transform: scale(1.25) rotate(360deg);
+}
+
+a:visited {
+  color: #9743f1;
+}
+
+a:link {
+  color: #5cd5eb;
+}
+
+a:active {
+  color: whitesmoke;
+}
+
+a:hover {
+  color: #d15ceb;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Chart from "./components/Chart/Chart.jsx";
+import {FaGithub} from "react-icons/fa";
 
 function App() {
 
@@ -160,6 +161,9 @@ function App() {
 
     return (
         <div className="App">
+            <div className="header">
+                Sorting Algorithms Visualiser
+            </div>
             <Chart
                 values={values}
                 selection={selectionSort}
@@ -171,6 +175,9 @@ function App() {
                 speed={speed}
                 maxSpeed={""+ maxSpeed}
             />
+            <div className="footer">
+                <a href="https://github.com/KubaKalemba"><FaGithub className="icon-github" href={"google.com"}/></a>
+            </div>
         </div>
      )
 }

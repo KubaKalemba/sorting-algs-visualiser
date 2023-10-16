@@ -20,9 +20,6 @@ const Chart = (props) => {
     return (
         <div className={"chart-container"}>
             <div className="title-container">
-                <div className="title">
-                    SORTING ALGORITHMS VISUALISER
-                </div>
             <div className="speed-input">
                 SPEED
                 <input
@@ -53,9 +50,6 @@ const Chart = (props) => {
                 </button>
                 <button onClick={props.shuffle}>
                     SHUFFLE
-                </button>
-                <button>
-                    LightMode
                 </button>
             </div>
 
