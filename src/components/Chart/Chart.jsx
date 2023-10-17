@@ -17,6 +17,10 @@ const Chart = (props) => {
         props.setSpeed(e.target.value)
     }
 
+    const getSpeed = () => {
+        return props.speed+"km/h"
+    }
+
     return (
         <div className={"chart-container"}>
             <div className="title-container">
@@ -30,6 +34,7 @@ const Chart = (props) => {
                     value={props.speed}
                     onChange={handleSlider}
                 />
+                <div className="speed"> {getSpeed()} </div>
             </div>
             </div>
             <div className={"chart"}>
